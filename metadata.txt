@@ -28,7 +28,7 @@ hasProcessingProvider=no
 # Tags are comma separated with spaces allowed
 tags=python, labels, textAnnotation, annotation, hide, show, remove
 
-homepage=http://homepage
+homepage=https://github.com/ValPinnaSardinia/AnnotationToLabelPlugin
 category=Plugins
 icon=icon.png
 # experimental flag

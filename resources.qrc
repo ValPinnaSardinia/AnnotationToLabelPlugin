@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/plugins/annotation_labels" >
+        <file>icons/annotationtolabel_icon.png</file>
+		<file>icons/annotationtolabel_show_icon.png</file>
+		<file>icons/annotationtolabel_hide_icon.png</file>
+		<file>icons/annotationtolabel_remove_icon.png</file>	
+    </qresource>
+</RCC>

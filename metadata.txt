@@ -7,13 +7,25 @@ name=Annotation to Label
 qgisMinimumVersion=3.0
 description=This plugin converts the Text annotations on print layout labels. It provides also some buttons to show/hide and remove the Text Annotations.
 description[it]= Questo plugin converte le Annotazioni di Testo in etichette del layout di stampa. Fornisce inoltre alcuni utili pulsanti per mostrare/nascondere o rimuovere le annotazioni di testo.
-version=1.0
+version=1.2
 author=Valerio Pinna
 email=pinnavalerio@yahoo.co.uk
 
 about=This plugin provides some useful tools to work with Text Annotations. A dedicated toolbar will provide some buttons to show/hide or remove the Text Annotations and a tool to convert the canvas map Text Annotations on print layout labels.
 	  
-	  The Annotations/labels conversion tool allows defining the name, size and orientation of the new layout that will contain the labels. If the provided name is the same as an existing print layout it will be possible to decide if overwrite the old version. 
+ The Annotations/labels conversion tool allows defining the name, size and orientation of the new layout that will contain the labels. If the provided name is the same as an existing print layout it will be possible to decide if overwrite the old version. 
+
+ <strong>NOTE (23/05/2026)</strong> 
+ This plugin was originally developed as a lightweight utility to convert legacy QGIS Text Annotations into static print layout labels for publication and export workflows.
+
+ It also provides simple tools to show, hide, or remove Text Annotations directly from the QGIS interface.
+
+ Please note:
+ This plugin primarily targets the legacy Text Annotation workflow available in older QGIS versions. Modern QGIS releases (3.40+ and future QGIS 4 versions) include significantly expanded native annotation tools and annotation layer support, which may cover part of the original workflow addressed by this plugin.
+
+ The plugin is currently provided as a lightweight utility with limited planned future development. Compatibility fixes may still be provided where possible, but major feature expansion or adaptation to the newer annotation framework is not currently planned.
+
+ However, if another developer or contributor is interested in continuing the development, modernisation, or long-term maintenance of the plugin, I would be happy to discuss transferring ownership or collaborating on its future development.
 
 tracker=https://github.com/ValPinnaSardinia/AnnotationToLabelPlugin/issues
 repository=https://github.com/ValPinnaSardinia/AnnotationToLabelPlugin
@@ -23,14 +35,43 @@ repository=https://github.com/ValPinnaSardinia/AnnotationToLabelPlugin
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-# changelog=
+changelog=1.2
+ - Full internal refactor of the plugin architecture for improved maintainability and future compatibility.
+ - Separated GUI, conversion logic, and compatibility helpers into dedicated modules.
+ - Introduced a dedicated annotation conversion engine to isolate processing logic from the plugin interface.
+ - Replaced legacy monolithic workflow structure with a cleaner modular design.
+ - Removed deprecated and unsafe wildcard imports from qgis.core.
+ - Removed direct PyQt5 imports in favour of QGIS-compatible PyQt imports for improved Qt6/QGIS 4 readiness.
+ - Added compatibility helper functions for dialog execution, layout units, message box buttons, and page orientation handling across QGIS 3.x and future QGIS 4 environments.
+ - Improved validation of layout names, map margins, font sizes, and canvas extent checks.
+ - Added safer handling of missing or invalid annotations.
+ - Improved filtering of annotations to process only valid text annotations with valid map positions.
+ - Added safer layout overwrite handling and clearer user-facing validation messages.
+ - Refactored annotation visibility and removal tools into reusable conversion helper methods.
+ - Improved exception handling with detailed unexpected error reporting dialogs.
+ - Added clearer message bar feedback for conversion, visibility, and removal operations.
+ - Improved internal documentation, comments, and code readability throughout the plugin.
+ - Reworked layout generation logic into reusable dedicated methods.
+ - Improved north arrow handling with safer SVG lookup logic.
+ - Improved coordinate conversion calculations between map canvas and layout space.
+ - Added dedicated conversion result reporting structure for cleaner workflow management.
+ - Replaced the old Qt Designer dialog with a cleaner compact native Qt dialog implementation.
+ - Improved dialog layout, spacing, readability, and general user experience.
+ - Added improved support for light and dark QGIS themes.
+ - Removed obsolete legacy Plugin Builder patterns and unused imports.
+ - Updated plugin metadata, description, and documentation text.
+ - Added maintenance notes clarifying the plugin scope and current development status.
+ - Added a note inviting contributors interested in future maintenance or ownership transfer of the plugin.
+
+ <p>1.0.1
+ - Added missing main icon
 
 # Tags are comma separated with spaces allowed
 tags=python, labels, textAnnotation, annotation, hide, show, remove
 
 homepage=https://github.com/ValPinnaSardinia/AnnotationToLabelPlugin
 category=Plugins
-icon=icon.png
+icon=icons/annotationtolabel_icon.png
 # experimental flag
 experimental=False
 
